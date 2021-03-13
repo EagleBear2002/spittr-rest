@@ -3,6 +3,7 @@ package spittr.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -35,7 +36,14 @@ public class SpittleApiController {
 
     @RequestMapping(value = "/abc/abc", method = RequestMethod.GET, produces = "application/json")
     public String getName() {
-        return "taozs";//转成什么格式并不是produces指定
+        return "taozs";//字符串转成json还是原样不会加{}
+    }
+
+    @RequestMapping(value = "/ab/ab", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<String> bar() {
+        final HttpHeaders httpHeaders= new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<String>("{\"test\": \"jsonResponseExample\"}", httpHeaders, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
