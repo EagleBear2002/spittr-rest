@@ -33,6 +33,11 @@ public class SpittleApiController {
         return spittleRepository.findSpittles(max, count);
     }
 
+    @RequestMapping(value = "/abc/abc", method = RequestMethod.GET, produces = "application/json")
+    public String getName() {
+        return "taozs";//转成什么格式并不是produces指定
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     public Spittle spittleById(@PathVariable Long id) {
         return spittleRepository.findOne(id);
