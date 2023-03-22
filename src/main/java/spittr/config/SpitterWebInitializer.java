@@ -23,8 +23,8 @@ public class SpitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
     return new String[] { "/" };
   }
 
-//  @Override
-//  protected Filter[] getServletFilters() {
-//    return new Filter[]{new MyFilter()};
-//  }
+  @Override
+  protected Filter[] getServletFilters() {
+    return new Filter[]{new MyFilter()};
+  }
 }

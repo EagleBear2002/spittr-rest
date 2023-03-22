@@ -52,7 +52,7 @@ public class SpittleApiController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
+//    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Spittle> saveSpittle(@RequestBody Spittle spittle, UriComponentsBuilder ucb) {
         Spittle saved = spittleRepository.save(spittle);
 
